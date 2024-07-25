@@ -3,16 +3,15 @@ class Book {
     this.tittle = tittle;
     this.author = author;
     this.isbn = isbn;
-    this.id = Math.random() * 10000;
+    this.id = Math.floor(Math.random() * 1000);
     this.borrowed = false;
-    this.userBorrowed = [];
   }
 
-  userBorrow(book) {
-    this.userBorrowed.push(book);
-  }
   isBorrowed() {
-    if (this.borrowed === true) return false;
+    this.borrowed = true;
+  }
+  isReturned() {
+    this.borrowed = false;
   }
 }
 

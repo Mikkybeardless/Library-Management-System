@@ -1,6 +1,9 @@
 const Book = require("./Book");
-const User = require("./User");
+const Member = require("./member.js");
 const Library = require("./Library");
+
+// library instance
+const library = new Library();
 
 const book1 = new Book("The Mummy", "Kelvin Harts", "49yryt34");
 const book2 = new Book("Things Fall Apart", "Chinua Achebe", "rfju396");
@@ -10,41 +13,41 @@ const book5 = new Book("The 48 Laws of Power", "Robert Greene", "debfh123");
 const book6 = new Book("The avatar", "Ella Manuealla", "bcj467");
 const book7 = new Book("No Excuses", "Bryan Tracy", "2sfbh678");
 
-// create users
-const user1 = new User("Igashi");
-const user2 = new User("Michael");
-const user3 = new User("Justina");
-const user4 = new User("James");
-const user5 = new User("Doris");
+// create Members
+const Member1 = new Member("Igashi", 1);
+const Member2 = new Member("Michael", 2);
+const Member3 = new Member("Justina", 3);
+const Member4 = new Member("James", 4);
+const Member5 = new Member("Doris", 5);
 
 // register books
-Library.addNewBook(book1);
-Library.addNewBook(book2);
-Library.addNewBook(book3);
-Library.addNewBook(book4);
-Library.addNewBook(book5);
-Library.addNewBook(book6);
-Library.addNewBook(book7);
+library.addNewBook(book1);
+library.addNewBook(book2);
+library.addNewBook(book3);
+library.addNewBook(book4);
+library.addNewBook(book5);
+library.addNewBook(book6);
+library.addNewBook(book7);
 
-// register users
-Library.registerMember(user1);
-Library.registerMember(user2);
-Library.registerMember(user3);
-Library.registerMember(user4);
-Library.registerMember(user5);
-
-// borrow books
-Library.borrowBook(user1, "rfju396");
-console.log(user1);
-console.log(book1);
+// register Members
+library.registerMember(Member1);
+library.registerMember(Member2);
+library.registerMember(Member3);
+library.registerMember(Member4);
+library.registerMember(Member5);
 
 // borrow books
-Library.borrowBook(user2, "49yryt34");
-console.log(user2);
+library.borrowBook(Member1, "rfju396");
+console.log(Member1);
+console.log(book2);
 
-// return a book and a new user should borrow it
+// borrow books
+library.borrowBook(Member2, "49yryt34");
+console.log(Member2);
 
-Library.borrowBook(user3, "2sfbh678");
-console.log(user1);
+// return a book and a new Member should borrow it
+
+library.borrowBook(Member3, "2sfbh678");
+console.log(Member1);
 console.log(book1);
-console.log(user2);
+console.log(Member2);

@@ -22,11 +22,13 @@ class Library {
     book.isBorrowed();
 
     user.peakBook(isbn, this.books);
-    book.userBorrowed(book);
-
-    book.borrowed = true;
 
     return true;
+  }
+  returnBook(user, isbn) {
+    const book = this.books.find((b) => b.isbn === isbn);
+    user.replaceBook(isbn);
+    book.isReturned();
   }
 }
 
